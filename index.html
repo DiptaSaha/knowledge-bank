@@ -80,7 +80,7 @@
             // const depositAmount= document.getElementById("depositAmount").value;
             // const depositNumber= parseFloat(depositAmount);
 
-            const amountNumber = inputAmount('depositAmount')
+            const addedNumber = inputAmount('depositAmount')
            
             // const showDeposit= document.getElementById("showDeposit").innerText;
             // const currentDeposit= parseFloat(showDeposit);
@@ -93,8 +93,8 @@
             // document.getElementById("showBalance").innerText=totalBalance;
             
 
-            updateSpanText("showDeposit", amountNumber);
-            updateSpanText("showBalance", amountNumber);
+            updateSpanText("showDeposit", addedNumber);
+            updateSpanText("showBalance", addedNumber);
             
 
             document.getElementById("depositAmount").value= "";
@@ -107,11 +107,12 @@
 
         const withdraw= document.getElementById('withdraw');
         withdraw.addEventListener('click',function () {
-            const amountNumber = inputAmount('withdrawAmount')
+            const addedNumber = inputAmount('withdrawAmount')
           
 
-            updateSpanText("showWithdraw", amountNumber);
-            updateSpanTextWithdraw("showBalance", amountNumber);
+            updateSpanText("showWithdraw", addedNumber);
+            updateSpanText("showBalance", -1 * addedNumber);
+            // updateSpanTextWithdraw("showBalance", addedNumber);
 
             document.getElementById("withdrawAmount").value= "";
             
@@ -119,25 +120,25 @@
 
 function inputAmount(id) {
     const amount= document.getElementById(id).value;
-            const amountNumber= parseFloat(amount);
-            return amountNumber;
+            const addedNumber= parseFloat(amount);
+            return addedNumber;
 }
 
 
-        function updateSpanText(id,amountNumber) {
+        function updateSpanText(id,addedNumber) {
             const show= document.getElementById(id).innerText;
             const current= parseFloat(show);
-            let totalBalance= current+amountNumber;
+            let totalBalance= current+addedNumber;
             document.getElementById(id).innerText=totalBalance;
             
         }
-        function updateSpanTextWithdraw(id,amountNumber) {
-            const show= document.getElementById(id).innerText;
-            const current= parseFloat(show);
-            let totalBalance= current-amountNumber;
-            document.getElementById(id).innerText=totalBalance;
+        // function updateSpanTextWithdraw(id,addedNumber) {
+        //     const show= document.getElementById(id).innerText;
+        //     const current= parseFloat(show);
+        //     let totalBalance= current-addedNumber;
+        //     document.getElementById(id).innerText=totalBalance;
             
-        }
+        // }
 
         
 
